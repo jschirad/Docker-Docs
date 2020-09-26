@@ -1,5 +1,14 @@
 # Redes en Docker
 
+### Clase 1
+	
+	- Un contenedor puede tener aplicaciones que necesiten ser accedidas desde afuera del contenedor, por ejemplo Apache o Tomcat.
+	- Por defecto los puertos de un contenedor son privados y no pueden ser accedidos.
+	- Debemos hacerlos publicos y mapearlos con un puerto del host.
+
+
+
+
 ### Clase 13
 
 	Enlazar un contenedor Mysql y un contenedor Wordpress, utilizando una red personalizada.
