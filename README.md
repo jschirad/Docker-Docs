@@ -1,5 +1,7 @@
 # Docker-Docs
 
+![image](docker.png)
+
 ### [Introducción a Docker](IntroduccionDocker.md)
 
 

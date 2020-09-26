@@ -1,5 +1,12 @@
 # Redes en Docker
 
+
+### Comandos
+
+	> docker network
+
+	> docker port
+
 ### Clase 1
 
 	- Un contenedor puede tener aplicaciones que necesiten ser accedidas desde afuera del contenedor, por ejemplo Apache o Tomcat.
