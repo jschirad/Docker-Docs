@@ -164,15 +164,43 @@
 
 ### Clase 9
 
+	> --link comando para enlasar contenedores con redes. Comando sin soporte.
+
 ### Clase 10
+
+	Practica comando --link. Comando sin soporte. Es mejor no utilizar.
 
 ### Clase 11
 
+	Enlasar una imagen Mysql a una red personalizada.
+
+	- En este caso vamos a utilizar la imagen de mysql que encontramos en Docker Hub.
+
+	- Para iniciar el contenedor con la imagen de mysql corremos el siguiente comando:
+
+	> docker run --name mysql_server -e MYSQL_ROOT_PASSWORD=secret -d mysql:tag
+
+	Por medio del flag -e lo que hacemos es pasar una variable de entorno con la cual configuramos la contraseña para acceder a la base de datos.
+
+	En el caso de querer correr el contenedor a una red asociada
+
+	> docker run -d --name mysql_server --network some_network -e MYSQL_ROOT_PASSWORD=secret mysql:tag
+
+	Podemos crear otro contenedor y luego generar una conexion entre ellos.
+
+	> docker run -d --name mysql_client --network some_network -e MYSQL_ROOT_PASSWORD=secret mysql:tag
+
+	Para acceder al contenedor
+
+	> docker exec -it mysql_client bash
+
+	> mysql -h mysql_server -u root -p
+
+	Estaremos conectados al servidor mysql_server por medio de mysql_client.
+
 ### Clase 12
 
-### Clase 13
-
-	Enlazar un contenedor Mysql y un contenedor Wordpress, utilizando una red personalizada.
+	Enlazar un contenedor Mysql:5.7 y un contenedor Wordpress, utilizando una red personalizada.
 
 	> docker run -d --name mysql_wp --rm --network red1 -e MYSQL_ROOT_PASSWORD=secret mysql
 	> docker run -d --name wp --rm --network red1 -e WORDPRESS_DB_HOST=mysql_wp - WORDPRESS_DB_PASSWORD=secret -p 8080:80 wordpress
@@ -193,6 +221,12 @@
 	Si nos dirigimos a localhost:8080 podremos ver el instalador de Wordpress.
 
 
-### Clase 14
+### Clase 13
 
-### Clase 15
+	Borrar una red.
+
+	> docker network rm --help
+
+	> docker network rm some_network
+
+	Para borrar redes tenemos que asegurarnos que ningun contenedor este asociado a esta misma.
